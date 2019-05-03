@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="56dp"
-    android:elevation="10dp"
-    android:layout_margin="10dp">
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
 
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/smile384x384"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:layout_margin="5dp"
+        />
     <TextView
-        android:id="@+id/textView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawablePadding="10dp"
-        android:text="Item Name"
-        android:gravity="center_vertical"
-        android:drawableLeft="@drawable/smile48x48"
-        android:drawableRight="@drawable/baseline_done_outline_black_18dp"
-        android:layout_margin="5dp"/>
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:text="@string/text_for_textView"/>
 
-</android.support.v7.widget.CardView>
+
+</LinearLayout>
