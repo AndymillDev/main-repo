@@ -38,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
             mData = data;
         }
 
-        @NonNull
+
         @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-           final View view = mLayoutInflater.inflate(android.R.layout.simple_list_item_1, null, false);
+        public ViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
+           final View view = mLayoutInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
             return new ViewHolder(view);
         }
 
