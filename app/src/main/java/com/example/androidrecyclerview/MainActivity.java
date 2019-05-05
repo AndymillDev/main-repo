@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.zip.Inflater;
 
@@ -26,9 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
         final RecyclerView recyclerView = findViewById(R.id.view_list);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.setAdapter(new ListAdapter(this, names));
     }
 
-    private static class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private static class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
         final LayoutInflater mLayoutInflater;
         private final String[] mData;
@@ -46,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-
+        public void onBindViewHolder(final ViewHolder holder, final int position) {
+            holder.textView.setText(mData[position]);
         }
 
         @Override
@@ -57,9 +59,15 @@ public class MainActivity extends AppCompatActivity {
 
         class ViewHolder extends RecyclerView.ViewHolder {
 
+            public TextView textView;
+
             public ViewHolder(final View itemView) {
                 super(itemView);
+
+                textView = itemView.findViewById(android.R.id.text1);
             }
+
+
 
         }
     }
