@@ -1,17 +1,14 @@
 package com.example.androidrecyclerview;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         final RecyclerView recyclerView = findViewById(R.id.view_list);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
             recyclerView.setAdapter(new ListAdapter(this, names));
     }
 
