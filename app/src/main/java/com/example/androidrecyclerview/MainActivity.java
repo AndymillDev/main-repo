@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,11 +51,34 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(final View v) {
-                Log.d("MainActivity", "Hello FAB!");
+
+                final String[] newArray = {"hhh","jjj"};
+
+                class SecondThread extends Thread {
+                    @Override
+                    public void run() {
+                        final List<String> secondList = getGoogleReposNames();
+                        secondList.add("1234");
+                    }
+                    //return secondList.toArray(new String[secondList.size()]);
+                    //newArray = secondList.toArray(new String[secondList.size()]);
+                }
+                SecondThread thread = new SecondThread();
+                thread.start();
+                mListAdapter.setData(newArray);
+                mListAdapter.notifyDataSetChanged();
+
+                Toast toast = Toast.makeText(MainActivity.this, "111", Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+
+
+
             }
         });
 
-        new LoadGoogleReposTask().execute();
+        final LoadGoogleReposTask s = new LoadGoogleReposTask();
+        s.execute();
     }
         private List<String> getGoogleReposNames() {
             final List<String> names = new ArrayList<>();
