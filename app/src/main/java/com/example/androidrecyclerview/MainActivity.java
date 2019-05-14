@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ProgressBar mProgressBar;
     private ListAdapter mListAdapter;
+    private List<String> firstList = null;
+    private List<String> secondList = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,28 +54,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(final View v) {
 
-                final String[] newArray = {"hhh","jjj"};
-
                 class SecondThread extends Thread {
                     @Override
                     public void run() {
-                        final List<String> secondList = getGoogleReposNames();
-                        secondList.add("1234");
+
+                        secondList = getGoogleReposNames();
+
                     }
-                    //return secondList.toArray(new String[secondList.size()]);
-                    //newArray = secondList.toArray(new String[secondList.size()]);
                 }
+                firstList.add("1234");
+                final String[] newArray = firstList.toArray(new String[firstList.size()]);
                 SecondThread thread = new SecondThread();
                 thread.start();
                 mListAdapter.setData(newArray);
                 mListAdapter.notifyDataSetChanged();
 
-                Toast toast = Toast.makeText(MainActivity.this, "111", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(MainActivity.this, secondList.size() + " size", Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
-
-
-
             }
         });
 
@@ -121,8 +119,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String[] doInBackground(final Void... params) {
-            final List<String> names = getGoogleReposNames();
-            return names.toArray(new String[names.size()]);
+            firstList = getGoogleReposNames();
+            return firstList.toArray(new String[firstList.size()]);
         }
 
         @Override
@@ -170,9 +168,7 @@ public class MainActivity extends AppCompatActivity {
 
                 textView = itemView.findViewById(android.R.id.text1);
             }
-
-
-
         }
     }
+
 }
