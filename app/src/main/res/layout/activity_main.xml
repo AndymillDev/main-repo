@@ -19,11 +19,20 @@
         style="?android:attr/progressBarStyleLarge"/>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/view_fab"
+    android:id="@+id/view_fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right|bottom"
+    android:src="@drawable/ic_add_white_24dp"
+    android:layout_margin="16dp"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/view_fab_del"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right|bottom"
-        android:src="@drawable/ic_add_white_24dp"
-        android:layout_margin="16dp"/>
+        android:layout_gravity="left|bottom"
+        android:layout_margin="16dp"
+        android:onClick="clickBtn"
+        android:src="@drawable/ic_add_white_24dp" />
 
 </FrameLayout>

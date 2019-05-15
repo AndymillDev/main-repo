@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private ListAdapter mListAdapter;
     private List<String> firstList = null;
-    private List<String> secondList = null;
+    //private List<String> secondList = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +54,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(final View v) {
 
+
+
                 class SecondThread extends Thread {
                     @Override
                     public void run() {
 
-                        secondList = getGoogleReposNames();
-
+                            //secondList = getGoogleReposNames();
                     }
                 }
                 firstList.add("1234");
@@ -69,16 +70,18 @@ public class MainActivity extends AppCompatActivity {
                 mListAdapter.setData(newArray);
                 mListAdapter.notifyDataSetChanged();
 
-                Toast toast = Toast.makeText(MainActivity.this, secondList.size() + " size", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(MainActivity.this, firstList.size() + " size", Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
             }
         });
 
+
+
         final LoadGoogleReposTask s = new LoadGoogleReposTask();
         s.execute();
     }
-        private List<String> getGoogleReposNames() {
+        static List<String> getGoogleReposNames() {
             final List<String> names = new ArrayList<>();
 
             final URL url;
@@ -114,6 +117,18 @@ public class MainActivity extends AppCompatActivity {
             }
             return names;
         }
+
+    public void clickBtn(View view) {
+        firstList.remove(firstList.size()-1);
+        final String[] newArray = firstList.toArray(new String[firstList.size()]);
+
+        mListAdapter.setData(newArray);
+        mListAdapter.notifyDataSetChanged();
+
+        Toast toast = Toast.makeText(MainActivity.this, firstList.size() + " size", Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
+    }
 
     private class LoadGoogleReposTask extends AsyncTask<Void, Void, String[]> {
 
@@ -170,5 +185,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
 }
