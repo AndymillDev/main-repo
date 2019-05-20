@@ -8,16 +8,34 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import static java.lang.String.valueOf;
+
 public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberViewHolder>{
 
     private static int viewHolderCount;
     private int numberItems;
+    int i = 0;
 
     public NumbersAdapter(int numberOfItems) {
         numberItems = numberOfItems;
         viewHolderCount = 0;
-    }
 
+    }
+    String[] names = new String[] {
+            valueOf(R.string.comfort_2),
+            valueOf(R.string.comfort_5),
+            valueOf(R.string.comfort_7),
+            valueOf(R.string.comfort_8),
+            valueOf(R.string.comfort_9),
+            valueOf(R.string.comfort_11),
+            valueOf(R.string.comfort_13),
+            valueOf(R.string.comfort_14),
+            valueOf(R.string.comfort_15),
+            valueOf(R.string.comfort_18),
+            valueOf(R.string.comfort_19),
+            valueOf(R.string.comfort_24),
+            valueOf(R.string.comfort_34),
+            valueOf(R.string.comfort_35)};
     @NonNull
     @Override
     public NumberViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -29,8 +47,9 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberVi
         View view = inflater.inflate(layoutIdForListItem, parent, false);
 
         NumberViewHolder viewHolder = new NumberViewHolder(view);
-        viewHolder.viewHolderIndex.setText("ViewHolder Index " + viewHolderCount);
+        viewHolder.viewHolderIndex.setText("ViewHolder Index " + names[i]);
 
+        i++;
         viewHolderCount++;
         return viewHolder;
     }

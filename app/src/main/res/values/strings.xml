@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">TryMagazine</string>
+    <string name="app_name">EnotherExampleRecyclerView</string>
+    <string name="comfort_2">Комфорт 2</string>
+    <string name="comfort_5">Комфорт 5</string>
+    <string name="comfort_7">Комфорт 7</string>
+    <string name="comfort_8">Комфорт 8</string>
+    <string name="comfort_9">Комфорт 9</string>
+    <string name="comfort_11">Комфорт 11</string>
+    <string name="comfort_15">Комфорт 15</string>
+    <string name="comfort_14">Комфорт 14</string>
+    <string name="comfort_19">Комфорт 19</string>
+    <string name="comfort_35">Комфорт 35</string>
+    <string name="comfort_13">Комфорт 13</string>
+    <string name="comfort_18">Комфорт 18</string>
+    <string name="comfort_24">Комфорт 24</string>
+    <string name="comfort_34">Комфорт 34</string>
 </resources>
