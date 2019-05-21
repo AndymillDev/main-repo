@@ -1,6 +1,8 @@
 package com.example.trymagazine;
 
 import android.annotation.SuppressLint;
+import android.app.Application;
+import android.app.Service;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -16,13 +18,13 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberVi
 
     private static int viewHolderCount;
     private int numberItems;
-
+    NumberViewHolder viewHolder;
+    public String[] names;
     int i = 0;
 
     public NumbersAdapter(int numberOfItems) {
         numberItems = numberOfItems;
         viewHolderCount = 0;
-
     }
 
     @SuppressLint("SetTextI18n")
@@ -32,7 +34,7 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberVi
         Context context = parent.getContext();
         int layoutIdForListItem = R.layout.cards_activity;
 
-        String[] names = new String[] {
+        names = new String[] {
                 context.getResources().getString(R.string.comfort_2),
                 context.getResources().getString(R.string.comfort_5),
                 context.getResources().getString(R.string.comfort_7),
@@ -52,17 +54,18 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberVi
 
         View view = inflater.inflate(layoutIdForListItem, parent, false);
 
-        NumberViewHolder viewHolder = new NumberViewHolder(view);
+        viewHolder = new NumberViewHolder(view);
 
-        viewHolder.viewHolderIndex.setText("Модель: " + names[i]);
-        viewHolder.imageView.setImageResource(R.drawable.k5);
-        i++;
+        //viewHolder.viewHolderIndex.setText("Модель: " + names[i]);
+        //viewHolder.imageView.setImageResource(R.drawable.k5);
+        //i++;
         viewHolderCount++;
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull NumberViewHolder holder, int position) {
+
         holder.bind(position);
     }
 
@@ -87,7 +90,8 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberVi
 
         void bind(int listIndex) {
             listItemNumberView.setText(String.valueOf(listIndex));
-
+            viewHolder.imageView.setImageResource(R.drawable.k5);
+            viewHolder.viewHolderIndex.setText("Модель: " + names[listIndex]);
         }
     }
 }
