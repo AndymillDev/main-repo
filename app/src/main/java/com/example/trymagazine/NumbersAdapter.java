@@ -1,8 +1,6 @@
 package com.example.trymagazine;
 
 import android.annotation.SuppressLint;
-import android.app.Application;
-import android.app.Service;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberViewHolder>{
@@ -19,7 +19,7 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberVi
     private static int viewHolderCount;
     private int numberItems;
     NumberViewHolder viewHolder;
-    public String[] names;
+    public Map<Integer, String> names;
     int i = 0;
 
     public NumbersAdapter(int numberOfItems) {
@@ -33,39 +33,22 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberVi
     public NumberViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         int layoutIdForListItem = R.layout.cards_activity;
-
-        names = new String[] {
-                context.getResources().getString(R.string.comfort_2),
-                context.getResources().getString(R.string.comfort_5),
-                context.getResources().getString(R.string.comfort_7),
-                context.getResources().getString(R.string.comfort_8),
-                context.getResources().getString(R.string.comfort_9),
-                context.getResources().getString(R.string.comfort_11),
-                context.getResources().getString(R.string.comfort_13),
-                context.getResources().getString(R.string.comfort_14),
-                context.getResources().getString(R.string.comfort_15),
-                context.getResources().getString(R.string.comfort_18),
-                context.getResources().getString(R.string.comfort_19),
-                context.getResources().getString(R.string.comfort_24),
-                context.getResources().getString(R.string.comfort_34),
-                context.getResources().getString(R.string.comfort_35)};
-
+       
         LayoutInflater inflater = LayoutInflater.from(context);
 
         View view = inflater.inflate(layoutIdForListItem, parent, false);
 
         viewHolder = new NumberViewHolder(view);
-
-        //viewHolder.viewHolderIndex.setText("Модель: " + names[i]);
-        //viewHolder.imageView.setImageResource(R.drawable.k5);
-        //i++;
+        mSetCollection();
+        viewHolder.imageView.setImageResource(R.drawable.k5);
+        viewHolder.viewHolderIndex.setText("Модель: " + i + names.get(i));
+        i++;
         viewHolderCount++;
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull NumberViewHolder holder, int position) {
-
         holder.bind(position);
     }
 
@@ -73,6 +56,25 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberVi
     public int getItemCount() {
         return numberItems;
     }
+    
+    public void mSetCollection() {
+
+        names = new HashMap<>();
+            names.put(1, "comfort_2");
+            names.put(2, "comfort_5");
+            names.put(3, "comfort_7");
+            names.put(4, "comfort_8");
+            names.put(5, "comfort_9");
+            names.put(6, "comfort_11");
+            names.put(7, "comfort_13");
+            names.put(8, "comfort_14");
+            names.put(9, "comfort_15");
+            names.put(10, "comfort_18");
+            names.put(11, "comfort_19");
+            names.put(12, "comfort_24");
+            names.put(13, "comfort_34");
+            names.put(14, "comfort_35");
+            }
 
     class NumberViewHolder extends RecyclerView.ViewHolder {
 
@@ -90,8 +92,7 @@ public class NumbersAdapter extends RecyclerView.Adapter<NumbersAdapter.NumberVi
 
         void bind(int listIndex) {
             listItemNumberView.setText(String.valueOf(listIndex));
-            viewHolder.imageView.setImageResource(R.drawable.k5);
-            viewHolder.viewHolderIndex.setText("Модель: " + names[listIndex]);
+
         }
     }
 }
