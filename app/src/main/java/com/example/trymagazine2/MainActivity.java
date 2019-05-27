@@ -8,8 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,24 +45,24 @@ public class MainActivity extends AppCompatActivity {
         mNames.add("comfort_34");
         mNames.add("comfort_35");
 
+        images.add(context.getResources().getDrawable(R.drawable.k2));
         images.add(context.getResources().getDrawable(R.drawable.k5));
-        images.add(context.getResources().getDrawable(R.drawable.k5));
-        images.add(context.getResources().getDrawable(R.drawable.k5));
-        images.add(context.getResources().getDrawable(R.drawable.k5));
-        images.add(context.getResources().getDrawable(R.drawable.k5));
-        images.add(context.getResources().getDrawable(R.drawable.k5));
-        images.add(context.getResources().getDrawable(R.drawable.k5));
-        images.add(context.getResources().getDrawable(R.drawable.k5));
-        images.add(context.getResources().getDrawable(R.drawable.k5));
-        images.add(context.getResources().getDrawable(R.drawable.k5));
-        images.add(context.getResources().getDrawable(R.drawable.k5));
-        images.add(context.getResources().getDrawable(R.drawable.k5));
-        images.add(context.getResources().getDrawable(R.drawable.k5));
-        images.add(context.getResources().getDrawable(R.drawable.k5));
+        images.add(context.getResources().getDrawable(R.drawable.k7));
+        images.add(context.getResources().getDrawable(R.drawable.k8));
+        images.add(context.getResources().getDrawable(R.drawable.k9));
+        images.add(context.getResources().getDrawable(R.drawable.k11));
+        images.add(context.getResources().getDrawable(R.drawable.ic_launcher_background));
+        images.add(context.getResources().getDrawable(R.drawable.k14));
+        images.add(context.getResources().getDrawable(R.drawable.ic_launcher_background));
+        images.add(context.getResources().getDrawable(R.drawable.k18));
+        images.add(context.getResources().getDrawable(R.drawable.ic_launcher_background));
+        images.add(context.getResources().getDrawable(R.drawable.k24));
+        images.add(context.getResources().getDrawable(R.drawable.k34));
+        images.add(context.getResources().getDrawable(R.drawable.k35));
 
         initRecyclerView();
     }
-
+    //request for image from internet resource
     /*private void initImageBitmaps() {
         Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
 

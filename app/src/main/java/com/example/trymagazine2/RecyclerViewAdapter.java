@@ -47,8 +47,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 .asBitmap()
                 .load(images.get(position))
                 .into(viewHolder.image);*/
-        viewHolder.image.setImageDrawable(images.get(1));
+        for (int i = position; i< images.size(); i++) {
 
+            viewHolder.image.setImageDrawable(images.get(position));
+        }
         viewHolder.imageName.setText(mImageNames.get(position));
 
         viewHolder.parentLayout.setOnClickListener(new View.OnClickListener() {
