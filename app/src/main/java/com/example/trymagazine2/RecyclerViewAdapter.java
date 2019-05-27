@@ -12,10 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -46,10 +43,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
         Log.d(TAG, "onBindViewHolder: called.");
 
-        Glide.with(mContext)
+        /*Glide.with(mContext)
                 .asBitmap()
                 .load(images.get(position))
-                .into(viewHolder.image);
+                .into(viewHolder.image);*/
+        viewHolder.image.setImageDrawable(images.get(1));
 
         viewHolder.imageName.setText(mImageNames.get(position));
 
