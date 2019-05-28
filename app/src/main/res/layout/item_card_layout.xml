@@ -5,12 +5,19 @@
     android:layout_height="match_parent"
     tools:context="com.example.trymagazine2.ItemCardActivity">
 
+    <ImageView
+        android:id="@+id/view_image_drawable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Это вторая Activity"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal"
+        android:layout_alignBottom="@+id/view_image_drawable"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -1,14 +1,12 @@
 package com.example.trymagazine2;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-
 
 import java.util.ArrayList;
 
@@ -52,14 +50,14 @@ public class MainActivity extends AppCompatActivity {
         images.add(context.getResources().getDrawable(R.drawable.k8));
         images.add(context.getResources().getDrawable(R.drawable.k9));
         images.add(context.getResources().getDrawable(R.drawable.k11));
-        images.add(context.getResources().getDrawable(R.drawable.ic_launcher_background));
+        images.add(context.getResources().getDrawable(R.drawable.k13));
         images.add(context.getResources().getDrawable(R.drawable.k14));
-        images.add(context.getResources().getDrawable(R.drawable.ic_launcher_background));
+        images.add(context.getResources().getDrawable(R.drawable.k15));
         images.add(context.getResources().getDrawable(R.drawable.k18));
-        images.add(context.getResources().getDrawable(R.drawable.ic_launcher_background));
+        images.add(context.getResources().getDrawable(R.drawable.k19));
         images.add(context.getResources().getDrawable(R.drawable.k24));
         images.add(context.getResources().getDrawable(R.drawable.k34));
-        images.add(context.getResources().getDrawable(R.drawable.k35));
+        images.add(context.getResources().getDrawable(R.drawable.k35_1));
 
         initRecyclerView();
     }
