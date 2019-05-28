@@ -1,6 +1,7 @@
 package com.example.trymagazine2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -55,7 +56,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: clicked on: " + mImageNames.get(position));
-
+                Intent in = new Intent(mContext, ItemCardActivity.class);
+                in.putExtra("something", "else");
+                mContext.startActivity(in);
                 Toast.makeText(mContext, mImageNames.get(position), Toast.LENGTH_LONG).show();
             }
         });
