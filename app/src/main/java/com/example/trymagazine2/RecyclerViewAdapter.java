@@ -2,9 +2,6 @@ package com.example.trymagazine2;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -63,9 +60,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                 Intent in = new Intent(mContext, ItemCardActivity.class);
                 in.putExtra("something", mImageNames.get(position));
-
-                String itemName = images.get(position).toString();
-                Log.d(TAG, "bitmap status: " + v.getId() + " itemName " + itemName);
                 mContext.startActivity(in);
             }
         });
