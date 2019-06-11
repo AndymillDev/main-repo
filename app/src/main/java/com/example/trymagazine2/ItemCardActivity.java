@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -35,10 +34,8 @@ public class ItemCardActivity extends AppCompatActivity {
 
 
         Create(FieldLayout);
-
-
-
     }
+
     public void Create(View v) {
 
         imageCount = 5;
