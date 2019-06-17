@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 public class ItemCardActivity extends AppCompatActivity {
@@ -19,6 +20,7 @@ public class ItemCardActivity extends AppCompatActivity {
     GridLayout FieldLayout;
     RelativeLayout rl;
     TextView tv;
+    TextView tvPrice;
     ImageView im ;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,10 +29,12 @@ public class ItemCardActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate itemCardActivity: started.");
 
         tv = findViewById(R.id.textView);
+        tvPrice = findViewById(R.id.PriceTextView);
         im = findViewById(R.id.view_image_drawable);
         rl = findViewById(R.id.relative_layout_item);
         rl.removeView(tv);
         rl.removeView(im);
+        rl.removeView(tvPrice);
 
 
         Create(FieldLayout);
@@ -47,9 +51,11 @@ public class ItemCardActivity extends AppCompatActivity {
 
         FieldLayout.addView(im,0);
         FieldLayout.addView(tv,1);
+        FieldLayout.addView(tvPrice,2);
         rl.addView(FieldLayout);
         textName = getIntent().getStringExtra("something");
         tv.setText(textName);
+        tvPrice.setText("Price 20000");
 
         int i = textName.indexOf("_")+1;
         String imageName = textName.substring(i);

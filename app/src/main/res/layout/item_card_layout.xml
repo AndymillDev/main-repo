@@ -25,4 +25,10 @@
         android:textSize="40sp"
         android:textColor="#000"
         android:text="Это вторая Activity" />
+
+    <TextView
+        android:id="@+id/PriceTextView"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+
 </RelativeLayout>
